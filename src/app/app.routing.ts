@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 const APP_ROUTES: Routes = [
     { path: 'login', component: LoginComponent },
+    { path: 'cliente', loadChildren: './cliente/cliente.module#ClienteModule' },
     // { path: '', component: AppComponent }
 ];
 

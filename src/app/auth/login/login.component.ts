@@ -6,7 +6,7 @@ import { MatInputModule, MatButtonModule } from '@angular/material';
 
 @Component({
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
 
@@ -14,6 +14,11 @@ export class LoginComponent {
   submitted: Boolean;
   pendingRequest: Boolean;
 
-  constructor(){  }
+  constructor(private fb: FormBuilder,){
+  	this.loginForm =  this.fb.group({
+      email: [null, Validators.required],
+      password: [null, Validators.required]
+    });
+  }
 
 }

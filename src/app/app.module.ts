@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRouting } from './app.routing';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
+import { ClienteModule } from './cliente/cliente.module';
 
 import {MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
   MatTabsModule, MatSlideToggleModule, MatButtonModule, MatRadioModule,
@@ -21,7 +22,7 @@ import { CovalentCommonModule, CovalentLayoutModule, CovalentMediaModule, Covale
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
   ],
   entryComponents: [
         LoginComponent,
@@ -34,6 +35,7 @@ import { CovalentCommonModule, CovalentLayoutModule, CovalentMediaModule, Covale
     BrowserModule,
     AppRouting,
     HttpModule,
+    ClienteModule,
 
     /** Material Modules */
     MatButtonModule,

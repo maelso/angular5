@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+@import '~@covalent/core/theming/all-theme';
+
+
+.mat-toolbar {
+	background: #0cb8f3 !important;
+	color: white;
+}
+
+.mat-sidenav{
+	background: #0cb8f3 !important;
+}
+.mat-nav-list {
+	background: #0cb8f3 !important;
+	color: white;
+	width:15rem;
+	// border-right:1px solid #ccc;
+	// border-top:1px solid #ccc;
+	// border-bottom:1px solid #ccc;
+}
+
+.td-layout-footer {
+	background: #0cb8f3 !important;
+	color: white;
+}
+.footer {
+	text-align: center;
+}
+
+.bg-transparent {
+	background: transparent !important;
+}

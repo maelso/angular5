@@ -1,27 +1,25 @@
 <td-layout>
-  <td-layout-nav #layout>
+  <td-layout-nav>
     <div td-toolbar-content layout="row" layout-align="start center" flex>
-      <button mat-icon-button class="td-menu-button" (click)="sidenav.toggle()" mdTooltip="Main menu"><mat-icon>menu</mat-icon>
+      <button mat-icon-button class="td-menu-button bg-transparent" (click)="sidenav.toggle()" mdTooltip="Main menu">
+        <mat-icon>menu</mat-icon>
       </button>
     </div>
 
     <mat-sidenav-container fullscreen>
-      <mat-sidenav #sidenav mode="side" opened="true" style="width:257px;border-right:1px solid #ccc">
-        <div flex class="mat-content bgc-grey-50">
+      <mat-sidenav #sidenav mode="side" opened="false">
+        <div flex class="mat-content">
           <mat-nav-list>
             <ng-template let-item let-last="last" ngFor [ngForOf]="routes">
-              <a mat-list-item [routerLink]="[item.route]" (click)="sidenav.close()"><mat-icon matListIcon>{{item.icon}}</mat-icon>{{item.title}}</a>
+              <a mat-list-item [routerLink]="[item.route]" (click)="sidenav.close()"><mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
             </ng-template>
           </mat-nav-list>
         </div>
       </mat-sidenav>
+
     </mat-sidenav-container>
 
   </td-layout-nav>
-  <td-layout-footer>
-    <div layout="row" layout-align="start center">
-      <span class="mat-caption">Copyright &copy; 2018 Maelso. All rights reserved</span>
-    </div>
-  </td-layout-footer>
+
 </td-layout>
 <router-outlet></router-outlet>
