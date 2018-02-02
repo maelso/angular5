@@ -9,6 +9,7 @@ import { AppRouting } from './app.routing';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { ClienteModule } from './cliente/cliente.module';
+import { SharedModule } from './shared/shared.module';
 
 import {MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
   MatTabsModule, MatSlideToggleModule, MatButtonModule, MatRadioModule,
@@ -25,10 +26,9 @@ import { CovalentCommonModule, CovalentLayoutModule, CovalentMediaModule, Covale
     LoginComponent,
   ],
   entryComponents: [
-        LoginComponent,
-    ],
+    LoginComponent,
+  ],
   imports: [
-    CovalentLayoutModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
@@ -36,6 +36,7 @@ import { CovalentCommonModule, CovalentLayoutModule, CovalentMediaModule, Covale
     AppRouting,
     HttpModule,
     ClienteModule,
+    SharedModule,
 
     /** Material Modules */
     MatButtonModule,

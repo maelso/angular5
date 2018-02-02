@@ -1,8 +1,9 @@
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes} from '@angular/router';
-
+import { SharedModule} from '../shared/shared.module';
 import { CadastroComponent } from './cadastro/cadastro.component';
+
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    SharedModule,
   ],
   declarations: [
   	CadastroComponent

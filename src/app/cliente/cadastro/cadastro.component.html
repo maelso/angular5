@@ -1,18 +1,45 @@
-<p>
-  1cadastro works!
-</p>
-<p>
-  2cadastro works!
-</p>
-<p>
-  3cadastro works!
-</p>
-<p>
-  4cadastro works!
-</p>
-<p>
-  5cadastro works!
-</p>
-<p>
-  6cadastro works!
-</p>
+<mat-card>
+
+  <mat-divider></mat-divider>
+  <mat-card-content class="push-bottom-none">
+    <form class="ng-form" [formGroup]="PJForm" (ngSubmit)="onSubmit()">
+        <div layout="row">
+          <mat-form-field flex>
+            <input matInput placeholder="Razão Social" formControlName="razao_social" maxLength="40">
+          </mat-form-field>
+        </div>
+        <div layout="row">
+          <mat-form-field flex>
+            <input matInput placeholder="Nome Fantasia" formControlName="nome_fantasia" maxLength="40">
+          </mat-form-field>
+        </div>
+        <div layout="row">
+          <mat-form-field flex>
+            <input matInput placeholder="CNPJ" formControlName="cnpj" maxLength="14">
+          </mat-form-field>
+          <mat-form-field flex>
+            <input matInput placeholder="Inscrição Estadual" formControlName="inscricao_estadual">
+          </mat-form-field>
+        </div>
+        <div layout="row">
+          <mat-form-field flex>
+            <input type="email" matInput placeholder="Email" formControlName="email">
+          </mat-form-field>
+        </div>
+        <div layout="row">
+          <mat-form-field flex>
+            <input matInput placeholder="Contato" formControlName="fone">
+          </mat-form-field>
+        </div>
+    </form>
+
+    <mat-divider></mat-divider>
+  </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="reset()" color="primary">Limpar</button>
+      <button mat-button [disabled]="PJForm.pristine" type="submit">Salvar</button>
+    </mat-card-actions>
+</mat-card>
+
+
+<router-outlet></router-outlet>

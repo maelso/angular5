@@ -1,7 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/theming';
-@import '~@covalent/core/theming/all-theme';
-
+// @import '~@angular/material/theming';
+// @import '~@covalent/core/theming/all-theme';
+// @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+// @include mat-core();
 
 .mat-toolbar {
 	background: #0cb8f3 !important;
@@ -10,21 +11,29 @@
 
 .mat-sidenav{
 	background: #0cb8f3 !important;
-}
-.mat-nav-list {
-	background: #0cb8f3 !important;
-	color: white;
-	width:15rem;
-	// border-right:1px solid #ccc;
-	// border-top:1px solid #ccc;
-	// border-bottom:1px solid #ccc;
+	color: white !important;
+	border-right:1px solid #ccc;
+	border-top:1px solid #ccc;
+	border-bottom:1px solid #ccc;
 }
 
-.td-layout-footer {
+.mat-nav-list {
+	background: #0cb8f3 !important;
+	color: white !important;
+	width:15rem;
+}
+
+.footer {
 	background: #0cb8f3 !important;
 	color: white;
+	height: 2.5rem;
+	position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
-.footer {
+.text-center {
 	text-align: center;
 }
 
