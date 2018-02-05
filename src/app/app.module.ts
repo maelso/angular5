@@ -11,14 +11,10 @@ import { LoginComponent } from './auth/login/login.component';
 import { ClienteModule } from './cliente/cliente.module';
 import { SharedModule } from './shared/shared.module';
 
-import {MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
+import { MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
   MatTabsModule, MatSlideToggleModule, MatButtonModule, MatRadioModule,
   MatMenuModule, MatToolbarModule, MatCardModule, MatSidenavModule,
-  MatAutocompleteModule,MatSelectModule, MatGridListModule}  from '@angular/material';
-
-import { CovalentCommonModule, CovalentLayoutModule, CovalentMediaModule, CovalentExpansionPanelModule,
-         CovalentStepsModule, CovalentLoadingModule, CovalentDialogsModule, CovalentSearchModule, CovalentPagingModule,
-         CovalentNotificationsModule, CovalentMenuModule, CovalentDataTableModule, CovalentMessageModule } from '@covalent/core';
+  MatAutocompleteModule, MatSelectModule, MatGridListModule }  from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -53,26 +49,25 @@ import { CovalentCommonModule, CovalentLayoutModule, CovalentMediaModule, Covale
     MatRadioModule,
     MatGridListModule,
     MatAutocompleteModule,
-    /** Covalent Modules */
-    CovalentCommonModule,
-    CovalentLayoutModule,
-    CovalentMediaModule,
-    CovalentExpansionPanelModule,
-    CovalentStepsModule,
-    CovalentDialogsModule,
-    CovalentLoadingModule,
-    CovalentSearchModule,
-    CovalentPagingModule,
-    CovalentNotificationsModule,
-    CovalentMenuModule,
-    CovalentDataTableModule,
-    CovalentMessageModule,
   ],
   exports:[
-    MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
-    MatTabsModule, MatSlideToggleModule, MatButtonModule,
-    MatMenuModule, MatToolbarModule, MatCardModule,MatSelectModule,
-    MatAutocompleteModule, FormsModule, ReactiveFormsModule
+    MatSidenavModule,
+    MatGridListModule,
+    MatIconModule,
+    MatListModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatTabsModule,
+    MatSlideToggleModule,
+    MatButtonModule,
+    MatRadioModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatSelectModule,
+    MatAutocompleteModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

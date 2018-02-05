@@ -1,8 +1,37 @@
 <mat-card>
-
   <mat-divider></mat-divider>
   <mat-card-content class="push-bottom-none">
-    <form class="ng-form" [formGroup]="PJForm" (ngSubmit)="onSubmit()">
+
+    <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+      <div layout="row">
+        <input type="radio" name="client_type" value="PF" formControlName="client_type" (click)="print()"/>
+        <label>Pessoa Física</label>
+        <input type="radio" name="client_type" value="PJ" formControlName="client_type" (click)="print()"/>
+        <label>Pessoa Jurídica</label>
+      </div>
+
+      <div formGroupName="pf" *ngIf="clientForm.controls.client_type.value == 'PF'">
+        <div layout="row">
+          <mat-form-field flex>
+            <input matInput placeholder="Nome" formControlName="nome">
+          </mat-form-field>
+        </div>
+        <div layout="row">
+          <mat-form-field flex>
+            <input matInput placeholder="Data de Nascimento" formControlName="data_nascimento" pattern="[0-9]/, /\d/,'/',/\d/, /\d/, /\d/, /\d">
+          </mat-form-field>
+        </div>
+        <div layout="row">
+          <mat-form-field >
+            <input matInput placeholder="CPF" formControlName="cpf">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="RG" formControlName="rg">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div formGroupName="pj" *ngIf="clientForm.controls.client_type.value == 'PJ'">
         <div layout="row">
           <mat-form-field flex>
             <input matInput placeholder="Razão Social" formControlName="razao_social" maxLength="40">
@@ -21,6 +50,9 @@
             <input matInput placeholder="Inscrição Estadual" formControlName="inscricao_estadual">
           </mat-form-field>
         </div>
+      </div>
+
+      <div formGroupName="contato" *ngIf="clientForm.controls.client_type.valid">
         <div layout="row">
           <mat-form-field flex>
             <input type="email" matInput placeholder="Email" formControlName="email">
@@ -28,17 +60,57 @@
         </div>
         <div layout="row">
           <mat-form-field flex>
-            <input matInput placeholder="Contato" formControlName="fone">
+            <input matInput placeholder="Fone" formControlName="fone">
           </mat-form-field>
         </div>
-    </form>
+      </div>
 
-    <mat-divider></mat-divider>
+      <div formGroupName="endereco" *ngIf="clientForm.controls.client_type.valid">
+        <div layout="row">
+          <mat-form-field flex>
+            <input matInput placeholder="Cep" formControlName="cep" (blur)="consultaCEP()">
+          </mat-form-field>
+        </div>
+        <div layout="row">
+          <mat-form-field flex>
+            <input matInput placeholder="Logradouro" formControlName="logradouro">
+          </mat-form-field>
+        </div>
+        <div layout="row">
+          <mat-form-field flex>
+            <input matInput placeholder="Número" formControlName="numero">
+          </mat-form-field>
+        </div>
+        <div layout="row">
+          <mat-form-field flex>
+            <input matInput placeholder="Bairro" formControlName="bairro">
+          </mat-form-field>
+        </div>
+        <div layout="row">
+          <mat-form-field flex>
+            <input matInput placeholder="Cidade" formControlName="cidade">
+          </mat-form-field>
+        </div>
+        <div layout="row">
+          <mat-form-field flex>
+            <mat-select placeholder="Estado" formControlName="estado">
+              <mat-option *ngFor="let estado of estados" value="estado.sigla">
+                {{ estado.nome }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+    </form>
   </mat-card-content>
-    <mat-card-actions>
-      <button mat-button (click)="reset()" color="primary">Limpar</button>
-      <button mat-button [disabled]="PJForm.pristine" type="submit">Salvar</button>
-    </mat-card-actions>
+
+  <mat-divider></mat-divider>
+
+  <mat-card-actions>
+    <button mat-button (click)="reset()" color="primary">Limpar</button>
+    <button mat-button type="submit">Salvar</button>
+  </mat-card-actions>
 </mat-card>
 
 

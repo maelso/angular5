@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material';
-import { TdMediaService } from '@covalent/core';
 
 @Component({
   selector: 'app-root',
@@ -31,8 +30,7 @@ export class AppComponent {
   }
   ];
 
-  constructor(public media: TdMediaService,
-              private _iconRegistry: MatIconRegistry,
+  constructor(private _iconRegistry: MatIconRegistry,
               private _domSanitizer: DomSanitizer) {
   }
 

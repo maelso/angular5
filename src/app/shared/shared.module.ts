@@ -9,8 +9,6 @@ import {MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
   MatTabsModule, MatSlideToggleModule, MatButtonModule,
   MatMenuModule, MatToolbarModule, MatCardModule,
   MatAutocompleteModule,MatSelectModule}  from '@angular/material';
-import { CovalentLayoutModule, CovalentMediaModule, CovalentSearchModule,
-  CovalentMessageModule, CovalentDialogsModule} from '@covalent/core';
 
 @NgModule({
   imports: [
@@ -22,8 +20,6 @@ import { CovalentLayoutModule, CovalentMediaModule, CovalentSearchModule,
     MatTabsModule, MatSlideToggleModule, MatButtonModule,
     MatMenuModule, MatToolbarModule, MatCardModule,MatSelectModule,
     MatAutocompleteModule,
-    CovalentLayoutModule, CovalentMediaModule, CovalentSearchModule,
-    CovalentMessageModule, CovalentDialogsModule,
     CommonModule, FormsModule, ReactiveFormsModule,
   ],
   providers: [ EstadosService, EnderecoService ],
