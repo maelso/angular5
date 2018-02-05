@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EnderecoService } from './services/endereco.service';
 import { EstadosService } from './services/estados.service';
+import { BlockUIModule } from 'ng-block-ui';
 
 import {MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
   MatTabsModule, MatSlideToggleModule, MatButtonModule,
@@ -13,7 +14,8 @@ import {MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
 @NgModule({
   imports: [
     CommonModule,
-    HttpModule
+    HttpModule,
+    BlockUIModule
   ],
   exports:[
     MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
@@ -21,6 +23,7 @@ import {MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
     MatMenuModule, MatToolbarModule, MatCardModule,MatSelectModule,
     MatAutocompleteModule,
     CommonModule, FormsModule, ReactiveFormsModule,
+    BlockUIModule
   ],
   providers: [ EstadosService, EnderecoService ],
   declarations: []

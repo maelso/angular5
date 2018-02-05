@@ -4,17 +4,21 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 // @include mat-core();
 
+.mat-form-field {
+	width: 300px;
+}
+
 @media only screen and (min-width : 1280px) {
 	.mat-card {
 		margin-left: 8rem;
 		margin-right: 8rem;
-		transform: translatey(15%);
+		transform: translatey(3rem);
 	}
 }
 
 @media only screen and (min-width: 1367px) {
 	.mat-card {
-		transform: translatey(30%);
+		transform: translatey(6rem);
 	}
 }
 

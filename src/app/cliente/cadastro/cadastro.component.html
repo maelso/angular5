@@ -1,24 +1,31 @@
 <mat-card>
+  <mat-card-title>Cadastro de Clientes</mat-card-title>
   <mat-divider></mat-divider>
   <mat-card-content class="push-bottom-none">
 
     <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+      <mat-card-subtitle>Selecione o tipo do Cliente</mat-card-subtitle>
       <div layout="row">
-        <input type="radio" name="client_type" value="PF" formControlName="client_type" (click)="print()"/>
-        <label>Pessoa Física</label>
-        <input type="radio" name="client_type" value="PJ" formControlName="client_type" (click)="print()"/>
-        <label>Pessoa Jurídica</label>
+        <mat-form-field>
+          <input type="radio" name="client_type" value="PF" formControlName="client_type" (click)="print()"/>
+          <label>Pessoa Física</label>
+        </mat-form-field>
+        <mat-form-field>
+          <input type="radio" name="client_type" value="PJ" formControlName="client_type" (click)="print()"/>
+          <label>Pessoa Jurídica</label>
+        </mat-form-field>
       </div>
 
       <div formGroupName="pf" *ngIf="clientForm.controls.client_type.value == 'PF'">
+        <mat-card-subtitle>Dados Pessoais</mat-card-subtitle>
         <div layout="row">
-          <mat-form-field flex>
+          <mat-form-field>
             <input matInput placeholder="Nome" formControlName="nome">
           </mat-form-field>
         </div>
         <div layout="row">
           <mat-form-field flex>
-            <input matInput placeholder="Data de Nascimento" formControlName="data_nascimento" pattern="[0-9]/, /\d/,'/',/\d/, /\d/, /\d/, /\d">
+            <input matInput placeholder="Data de Nascimento" formControlName="data_nascimento">
           </mat-form-field>
         </div>
         <div layout="row">
@@ -32,6 +39,7 @@
       </div>
 
       <div formGroupName="pj" *ngIf="clientForm.controls.client_type.value == 'PJ'">
+        <mat-card-subtitle>Dados da Empresa</mat-card-subtitle>
         <div layout="row">
           <mat-form-field flex>
             <input matInput placeholder="Razão Social" formControlName="razao_social" maxLength="40">
@@ -53,6 +61,7 @@
       </div>
 
       <div formGroupName="contato" *ngIf="clientForm.controls.client_type.valid">
+        <mat-card-subtitle>Contato</mat-card-subtitle>
         <div layout="row">
           <mat-form-field flex>
             <input type="email" matInput placeholder="Email" formControlName="email">
@@ -66,6 +75,7 @@
       </div>
 
       <div formGroupName="endereco" *ngIf="clientForm.controls.client_type.valid">
+        <mat-card-subtitle>Endereço</mat-card-subtitle>
         <div layout="row">
           <mat-form-field flex>
             <input matInput placeholder="Cep" formControlName="cep" (blur)="consultaCEP()">

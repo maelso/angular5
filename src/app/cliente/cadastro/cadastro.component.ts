@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs/Rx';
+import { BlockUI, NgBlockUI } from 'ng-block-ui';
 
 import { EstadoBr } from '../../shared/models/estado-br';
 import { EnderecoService } from '../../shared/services/endereco.service';
 import { EstadosService } from '../../shared/services/estados.service';
+
 
 @Component({
 	selector: 'app-cadastro',
@@ -12,11 +14,10 @@ import { EstadosService } from '../../shared/services/estados.service';
 	styleUrls: ['./cadastro.component.scss']
 })
 export class CadastroComponent {
-
+	@BlockUI() blockUI: NgBlockUI;
 	clientForm: FormGroup;
 	public estados: EstadoBr[];
 	public client_type: string = "";
-	dateMask = [/[0-9]/, /\d/,'/',/\d/, /\d/, /\d/, /\d/];
 
 	constructor(private fb: FormBuilder,
 				private estadosService: EstadosService,
@@ -45,12 +46,19 @@ export class CadastroComponent {
 	}
 
 	consultaCEP(){
+		this.blockUi(true, "Pesquisando cep...");
 		if(this.clientForm.get('endereco.cep').valid){
 			let cep = this.clientForm.get('endereco.cep').value;
-			this.enderecoService.buscaEndereco(cep).subscribe(dados =>
-				this.populaEndereco(dados));
+			this.enderecoService.buscaEndereco(cep).subscribe(dados => {
+				this.populaEndereco(dados);
+				this.blockUi(false, '');
+			},
+			err => {
+				this.blockUi(false, '');
+			});
 		} else {
 			this.resetaEndereco();
+			this.blockUi(false, '');
 		}
 	}
 
@@ -77,6 +85,14 @@ export class CadastroComponent {
 		});
 	}
 
+	blockUi(open: boolean, message: string) {
+        if (!open) {
+            this.blockUI.stop();
+        } else {
+            this.blockUI.start(message);
+        }
+    }
+
 	createForm(){
 		this.clientForm = this.fb.group({
 
@@ -85,11 +101,11 @@ export class CadastroComponent {
 			pf: this.fb.group({
 				nome: [null, [Validators.required, Validators.pattern("[a-zA-Z ]*"), Validators.minLength(3), Validators.maxLength(40)]],
 				data_nascimento: [null, [Validators.required]],
-				cpf: [null, [Validators.required, Validators.minLength(11), Validators.maxLength(11) ]],
+				cpf: [null, [Validators.required, Validators.pattern("[0-9]{11}"), Validators.minLength(11), Validators.maxLength(11) ]],
 				rg: [null, [Validators.required]],
 			}),
 			pj: this.fb.group({
-				cnpj: [null, [Validators.required, Validators.minLength(14), Validators.maxLength(14)]],
+				cnpj: [null, [Validators.required, Validators.pattern("[0-9]{14}"), Validators.minLength(14), Validators.maxLength(14)]],
 				razao_social: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(40)]],
 				nome_fantasia: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(40)]],
 				inscricao_estadual: [null, [Validators.required]],
