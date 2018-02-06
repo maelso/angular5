@@ -13,4 +13,9 @@ export class EstadosService {
   		.map( (res: Response) => res.json());
   }
 
+  getEstadosBr2(){
+  	return this.http.get('assets/dados/estados_cidades.json')
+  		.map( (res: Response) => res.json());
+  }
+
 }

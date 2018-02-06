@@ -6,6 +6,13 @@ import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { EstadoBr } from '../../shared/models/estado-br';
 import { EnderecoService } from '../../shared/services/endereco.service';
 import { EstadosService } from '../../shared/services/estados.service';
+import { PFService } from '../../shared/services/pf.service';
+import { PF } from '../../shared/models/pf';
+import { PJService } from '../../shared/services/pj.service';
+import { PJ } from '../../shared/models/pj';
+import { Contato } from '../../shared/models/contato';
+import { Endereco } from '../../shared/models/endereco';
+
 
 
 @Component({
@@ -17,15 +24,21 @@ export class CadastroComponent {
 	@BlockUI() blockUI: NgBlockUI;
 	clientForm: FormGroup;
 	public estados: EstadoBr[];
-	public client_type: string = "";
 
 	constructor(private fb: FormBuilder,
 				private estadosService: EstadosService,
-				private enderecoService: EnderecoService) {
+				private enderecoService: EnderecoService,
+				private pfService: PFService,
+				private pf: PF,
+				private pjService: PJService,
+				private pj: PJ,
+				private contato: Contato,
+				private endereco: Endereco) {
 
-		this.estadosService.getEstadosBr()
+		this.estadosService.getEstadosBr2()
 			.subscribe( dados => {
 				this.estados = dados;
+				console.log("Estados> ", dados);
 		});
 	}
 
@@ -37,8 +50,72 @@ export class CadastroComponent {
 		this.createForm();
 	}
 
-	onSubmit(){
+	getContato(){
+		let contato = new Contato();
+		contato.email = this.clientForm.get('contato.email').value;
+		contato.fone = this.clientForm.get('contato.fone').value;
+		return contato;
+	}
+	getEndereco(){
+		let endereco = new Endereco();
+		endereco.cep = this.clientForm.get('endereco.cep').value;
+		endereco.logradouro = this.clientForm.get('endereco.logradouro').value;
+		endereco.numero = this.clientForm.get('endereco.numero').value;
+		endereco.bairro = this.clientForm.get('endereco.bairro').value;
+		endereco.cidade = this.clientForm.get('endereco.cidade').value;
+		endereco.estado = this.clientForm.get('endereco.estado').value;
+		return endereco;
+	}
+	getDadosPF(){
+		let pf = new PF();
+		pf.nome = this.clientForm.get('pf.nome').value;
+		pf.data_nascimento = this.clientForm.get('pf.data_nascimento').value;
+		pf.cpf = this.clientForm.get('pf.cpf').value;
+		pf.rg = this.clientForm.get('pf.rg').value;
+		pf.contato = this.getContato();
+		pf.endereco = this.getEndereco();
+		return pf;
+	}
+	getDadosPJ(){
+		let pj = new PJ();
+		pj.cnpj = this.clientForm.get('pj.cnpj').value;
+		pj.nome_fantasia = this.clientForm.get('pj.nome_fantasia').value;
+		pj.razao_social = this.clientForm.get('pj.razao_social').value;
+		pj.inscricao_estadual = this.clientForm.get('pj.inscricao_estadual').value;
+		return pj;
+	}
 
+	onSubmit(){
+		if (this.clientForm.get('client_type').value == 'PF') {
+			if(this.clientForm.controls.pf.valid && this.clientForm.controls.contato.valid && this.clientForm.controls.endereco.valid){
+				let pf = this.getDadosPF();
+				this.pfService.createPF(pf.getApiPostData()).subscribe(
+					res => console.log("ok"),
+					err => console.log('err ', err));
+			} else{
+				this.showErrors(this.clientForm);
+			}
+
+		} else if(this.clientForm.get('client_type').value == 'PJ') {
+			if(this.clientForm.controls.pj.valid && this.clientForm.controls.contato.valid && this.clientForm.controls.endereco.valid){
+				let pj = this.getDadosPJ();
+				this.pjService.createPJ(pj.getApiPostData()).subscribe(
+					res => console.log("ok"),
+					err => console.log('err ', err));
+			} else{
+				this.showErrors(this.clientForm);
+			}
+		}
+	}
+
+	showErrors(formGroup: FormGroup){
+		Object.keys(formGroup.controls).forEach(field => {
+			const ctrl = formGroup.get(field);
+			ctrl.markAsTouched();
+			if (ctrl instanceof FormGroup) {
+				this.showErrors(ctrl);
+			}
+		});
 	}
 
 	reset(){
