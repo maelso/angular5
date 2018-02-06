@@ -7,4 +7,17 @@ export class Endereco {
 	estado: string;
 
 	constructor(){}
+
+	public getApiPostData(): any {
+
+		let data = {
+			"cep": this.cep,
+			"logradouro": this.logradouro,
+			"numero": this.numero,
+			"bairro": this.bairro,
+			"cidade": this.cidade,
+			"estado": this.estado
+		}
+		return data;
+	}
 }

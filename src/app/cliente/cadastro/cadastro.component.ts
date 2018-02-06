@@ -41,7 +41,7 @@ export class CadastroComponent {
 				private contato: Contato,
 				private endereco: Endereco) {
 
-		this.estadosService.getEstadosBr2()
+		this.estadosService.getEstadosBr()
 			.subscribe( dados => {
 				this.estados = dados;
 				console.log("Estados> ", dados);

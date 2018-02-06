@@ -25,8 +25,8 @@ export class PF {
 			"data_nascimento": this.data_nascimento,
 			"cpf": this.cpf,
 			"rg": this.rg,
-			"contato": {},
-			"endereco": {}
+			"contato": this.contato.getApiPostData(),
+			"endereco": this.endereco.getApiPostData()
 		}
 		return data;
 	}
