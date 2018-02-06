@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { BlockUIModule } from 'ng-block-ui';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TextMaskModule } from 'angular2-text-mask';
 import { EnderecoService } from './services/endereco.service';
 import { EstadosService } from './services/estados.service';
 import { PFService } from './services/pf.service';
@@ -21,7 +22,9 @@ import { MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
   imports: [
     CommonModule,
     HttpModule,
-    BlockUIModule
+    BlockUIModule,
+    TextMaskModule
+
   ],
   exports:[
     MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
@@ -29,9 +32,10 @@ import { MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
     MatMenuModule, MatToolbarModule, MatCardModule, MatSelectModule,
     MatAutocompleteModule,
     CommonModule, FormsModule, ReactiveFormsModule,
-    BlockUIModule
+    BlockUIModule,
+    TextMaskModule,
   ],
-  providers: [ EstadosService, EnderecoService, PFService, PJService, PF, PJ, Contato, Endereco ],
+  providers: [ EstadosService, EnderecoService, PFService, PJService, PF, PJ, Contato, Endereco, BlockUIModule ],
   declarations: []
 })
 export class SharedModule { }

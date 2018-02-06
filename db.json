@@ -36,33 +36,6 @@
       "contato": {},
       "endereco": {},
       "id": 2
-    },
-    {
-      "nome": "Maelso",
-      "data_nascimento": "25111999",
-      "cpf": "12312312311",
-      "rg": "1234567",
-      "contato": {},
-      "endereco": {},
-      "id": 3
-    },
-    {
-      "nome": "asdfghjkkjhg",
-      "data_nascimento": "3566543",
-      "cpf": "12345678988",
-      "rg": "1234567",
-      "contato": {},
-      "endereco": {},
-      "id": 4
-    },
-    {
-      "nome": "uytrew",
-      "data_nascimento": "65432222",
-      "cpf": "12345678911",
-      "rg": "1234567",
-      "contato": {},
-      "endereco": {},
-      "id": 5
     }
   ],
   "pj": [
@@ -84,15 +57,6 @@
         "cidade": "João Pessoa",
         "estado": "Paraíba"
       }
-    },
-    {
-      "cnpj": "12345678912345",
-      "razao_social": "Razão Social",
-      "nome_fantasia": "Nome Fantasia",
-      "inscricao_estadual": "234567",
-      "contato": {},
-      "endereco": {},
-      "id": 1
     }
   ]
 }

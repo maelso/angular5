@@ -25,12 +25,12 @@
         </div>
         <div layout="row">
           <mat-form-field flex>
-            <input matInput placeholder="Data de Nascimento" formControlName="data_nascimento">
+            <input matInput placeholder="Data de Nascimento" formControlName="data_nascimento" [textMask]="{mask: dnMask}" >
           </mat-form-field>
         </div>
         <div layout="row">
           <mat-form-field >
-            <input matInput placeholder="CPF" formControlName="cpf">
+            <input matInput placeholder="CPF" formControlName="cpf" [textMask]="{mask: cpfMask}">
           </mat-form-field>
           <mat-form-field>
             <input matInput placeholder="RG" formControlName="rg">
@@ -52,7 +52,7 @@
         </div>
         <div layout="row">
           <mat-form-field flex>
-            <input matInput placeholder="CNPJ" formControlName="cnpj" maxLength="14">
+            <input matInput placeholder="CNPJ" formControlName="cnpj" [textMask]="{mask: cnpjMask}" maxLength="14">
           </mat-form-field>
           <mat-form-field flex>
             <input matInput placeholder="Inscrição Estadual" formControlName="inscricao_estadual">
@@ -69,7 +69,7 @@
         </div>
         <div layout="row">
           <mat-form-field flex>
-            <input matInput placeholder="Fone" formControlName="fone">
+            <input matInput placeholder="Fone" formControlName="fone" [textMask]="{mask: foneMask}">
           </mat-form-field>
         </div>
       </div>
@@ -78,7 +78,7 @@
         <mat-card-subtitle>Endereço</mat-card-subtitle>
         <div layout="row">
           <mat-form-field flex>
-            <input matInput placeholder="Cep" formControlName="cep" (blur)="consultaCEP()">
+            <input matInput placeholder="Cep" formControlName="cep" [textMask]="{mask: cepMask}" (blur)="consultaCEP()">
           </mat-form-field>
         </div>
         <div layout="row">

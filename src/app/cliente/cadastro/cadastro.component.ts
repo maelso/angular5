@@ -25,6 +25,12 @@ export class CadastroComponent {
 	clientForm: FormGroup;
 	public estados: EstadoBr[];
 
+	public foneMask = ['(', /[1-9]/, /\d/, ')', ' ',/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+	public dnMask = [/[0-9]/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
+	public cpfMask = [/[0-9]/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/];
+	public cnpjMask = [/[0-9]/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/];
+	public cepMask = [/[1-9]/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
+
 	constructor(private fb: FormBuilder,
 				private estadosService: EstadosService,
 				private enderecoService: EnderecoService,
@@ -178,11 +184,11 @@ export class CadastroComponent {
 			pf: this.fb.group({
 				nome: [null, [Validators.required, Validators.pattern("[a-zA-Z ]*"), Validators.minLength(3), Validators.maxLength(40)]],
 				data_nascimento: [null, [Validators.required]],
-				cpf: [null, [Validators.required, Validators.pattern("[0-9]{11}"), Validators.minLength(11), Validators.maxLength(11) ]],
+				cpf: [null, [Validators.required, Validators.minLength(14), Validators.maxLength(14) ]],
 				rg: [null, [Validators.required]],
 			}),
 			pj: this.fb.group({
-				cnpj: [null, [Validators.required, Validators.pattern("[0-9]{14}"), Validators.minLength(14), Validators.maxLength(14)]],
+				cnpj: [null, [Validators.required, Validators.minLength(18), Validators.maxLength(18)]],
 				razao_social: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(40)]],
 				nome_fantasia: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(40)]],
 				inscricao_estadual: [null, [Validators.required]],
@@ -192,7 +198,7 @@ export class CadastroComponent {
 				email: [null, [Validators.required, Validators.email]]
 			}),
 			endereco: this.fb.group({
-				cep: [null, [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
+				cep: [null, [Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
 				logradouro: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(40)]],
 				numero: [null, Validators.required],
 				bairro: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
