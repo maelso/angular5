@@ -18,6 +18,8 @@ import { MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
   MatTabsModule, MatSlideToggleModule, MatButtonModule, MatRadioModule,
   MatMenuModule, MatToolbarModule, MatCardModule, MatSidenavModule,
   MatAutocompleteModule, MatSelectModule, MatGridListModule }  from '@angular/material';
+import { FooterComponent } from './footer/footer.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
     LoginComponent,
     HeaderComponent,
     MenuComponent,
+    FooterComponent,
+    DashboardComponent,
   ],
   entryComponents: [
     LoginComponent,

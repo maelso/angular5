@@ -4,12 +4,11 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { LoginComponent } from './auth/login/login.component';
 import { CadastroComponent } from './cliente/cadastro/cadastro.component';
 import { AppComponent } from './app.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const APP_ROUTES: Routes = [
     { path: 'login', component: LoginComponent },
-    // { path: 'cliente', loadChildren: './cliente/cliente.module#ClienteModule' },
-    // { path: 'cliente/cadastro', component: CadastroComponent },
-    // { path: '', component: AppComponent }
+    { path: 'dashboard', component: DashboardComponent }
 ];
 
 @NgModule({
