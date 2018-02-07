@@ -20,6 +20,7 @@ import { MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
   MatAutocompleteModule, MatSelectModule, MatGridListModule }  from '@angular/material';
 import { FooterComponent } from './footer/footer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ChartsComponent } from './dashboard/charts/charts.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MenuComponent,
     FooterComponent,
     DashboardComponent,
+    ChartsComponent,
   ],
   entryComponents: [
     LoginComponent,

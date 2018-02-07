@@ -1,6 +1,5 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
-import { Angular2TokenService } from 'angular2-token';
 import { Router } from '@angular/router';
 import { MatInputModule, MatButtonModule } from '@angular/material';
 
@@ -14,11 +13,16 @@ export class LoginComponent {
   submitted: Boolean;
   pendingRequest: Boolean;
 
-  constructor(private fb: FormBuilder,){
+  constructor(private fb: FormBuilder,
+              private router: Router){
   	this.loginForm =  this.fb.group({
       email: [null, Validators.required],
       password: [null, Validators.required]
     });
+  }
+
+  autenticar(){
+    this.router.navigate(['/dashboard']);
   }
 
 }
