@@ -8,10 +8,13 @@
 	width: 300px;
 }
 
+.mat-card {
+	transform: translatey(3rem);
+}
+
 @media only screen and (min-width : 1280px) {
 	.mat-card {
 		margin: 3rem 12rem;
-		transform: translatey(3rem);
 	}
 }
 
@@ -40,16 +43,6 @@
 	width:15rem;
 }
 
-.footer {
-	background: #0cb8f3 !important;
-	color: white;
-	height: 2.5rem;
-	position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-}
 .text-center {
 	text-align: center;
 }

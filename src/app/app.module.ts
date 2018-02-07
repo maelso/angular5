@@ -11,6 +11,9 @@ import { LoginComponent } from './auth/login/login.component';
 import { ClienteModule } from './cliente/cliente.module';
 import { SharedModule } from './shared/shared.module';
 
+import { HeaderComponent } from './header/header.component';
+import { MenuComponent } from './menu/menu.component';
+
 import { MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
   MatTabsModule, MatSlideToggleModule, MatButtonModule, MatRadioModule,
   MatMenuModule, MatToolbarModule, MatCardModule, MatSidenavModule,
@@ -20,6 +23,8 @@ import { MatIconModule, MatListModule, MatInputModule, MatFormFieldModule,
   declarations: [
     AppComponent,
     LoginComponent,
+    HeaderComponent,
+    MenuComponent,
   ],
   entryComponents: [
     LoginComponent,

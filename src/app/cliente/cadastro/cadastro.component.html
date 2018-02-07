@@ -6,14 +6,10 @@
     <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
       <mat-card-subtitle>Selecione o tipo do Cliente</mat-card-subtitle>
       <div layout="row">
-        <!-- <mat-form-field> -->
           <input type="radio" name="client_type" value="PF" formControlName="client_type" (click)="print()"/>
           <label>Pessoa Física</label>
-        <!-- </mat-form-field> -->
-        <!-- <mat-form-field> -->
           <input type="radio" name="client_type" value="PJ" formControlName="client_type" (click)="print()"/>
           <label>Pessoa Jurídica</label>
-        <!-- </mat-form-field> -->
       </div>
 
       <div formGroupName="pf" *ngIf="clientForm.controls.client_type.value == 'PF'">

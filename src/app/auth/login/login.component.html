@@ -1,28 +1,28 @@
 <div layout-padding flex>
-    <div layout-gt-xs="row" layout-align-gt-xs="center start" class="margin">
-      <div flex-gt-xs="50">
-        <mat-card>
-          <mat-card-title>PublicSoft - Login</mat-card-title>
-          <mat-divider></mat-divider>
-          <mat-card-content>
-            <form [formGroup]="loginForm" (ngSubmit)="autenticar();" layout="row" layout-align="center center" layout-margin>
-              <div fxLayout="column" fxFlex>
+  <div layout-gt-xs="row" layout-align-gt-xs="center start" class="margin">
+    <div flex-gt-xs="50">
+      <mat-card>
+        <mat-card-title>PublicSoft - Login</mat-card-title>
+        <mat-divider></mat-divider>
+        <mat-card-content>
+          <form [formGroup]="loginForm" (ngSubmit)="autenticar();">
+            <div layout="row">
               <mat-form-field>
-                <input matInput fxFlex placeholder="Email" type="text" name="email" formControlName="email" required />
+                <input matInput placeholder="Email" type="text" name="email" formControlName="email"/>
                 <mat-icon matPrefix>person</mat-icon>
               </mat-form-field>
               <mat-form-field >
-              <input matInput flex placeholder="Senha" type="password" name="password" formControlName="password" required/>
+                <input matInput placeholder="Senha" type="password" name="password" formControlName="password"/>
                 <mat-icon matPrefix>lock</mat-icon>
               </mat-form-field>
               <button mat-raised-button color="primary" [disabled]="!loginForm.valid" (click)="autenticar()">Entrar</button>
-              </div>
-            </form>
-          </mat-card-content>
-          <mat-divider></mat-divider>
-        </mat-card>
-      </div>
+            </div>
+          </form>
+        </mat-card-content>
+        <mat-divider></mat-divider>
+      </mat-card>
     </div>
   </div>
+</div>
 
-  <router-outlet></router-outlet>
+<router-outlet></router-outlet>
