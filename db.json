@@ -38,25 +38,6 @@
       "id": 2
     },
     {
-      "nome": "Maelso",
-      "data_nascimento": "25/01/1992",
-      "cpf": "083.661.324-47",
-      "rg": "3487560",
-      "contato": {
-        "fone": "(12) 34567-8976",
-        "email": "maelso@email"
-      },
-      "endereco": {
-        "cep": "58033-010",
-        "logradouro": "Rua Alberto Leal",
-        "numero": "123",
-        "bairro": "Brisamar",
-        "cidade": "João Pessoa",
-        "estado": "PB"
-      },
-      "id": 3
-    },
-    {
       "nome": "EuMesmo",
       "data_nascimento": "25/11/1999",
       "cpf": "123.123.123-23",
